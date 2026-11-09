@@ -1,0 +1,32 @@
+# Environment
+.env
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+venv/
+*.egg-info/
+
+# Database
+*.db
+*.db-journal
+
+# Telethon session
+*.session
+*.session-journal
+
+# Build artifacts
+builds/
+*.apk
+
+# Keystore (keep this secret!)
+*.keystore
+*.jks
+
+# Tools (downloaded by setup_tools.sh)
+tools/
+
+# Temp files
+*.tmp
+*.log
