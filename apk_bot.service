@@ -1,0 +1,32 @@
+# systemd service unit for APK Builder Bot
+# ─────────────────────────────────────────
+# Install:
+#   sudo cp apk_bot.service /etc/systemd/system/
+#   sudo systemctl daemon-reload
+#   sudo systemctl enable apk_bot
+#   sudo systemctl start  apk_bot
+#
+# Logs:
+#   journalctl -u apk_bot -f
+
+[Unit]
+Description=APK Builder Telegram Bot
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=ubuntu                          # change to your Linux user
+WorkingDirectory=/home/ubuntu/apk_bot
+
+# Load env vars from .env (requires systemd 240+)
+EnvironmentFile=/home/ubuntu/apk_bot/.env
+
+ExecStart=/home/ubuntu/apk_bot/venv/bin/python bot.py
+Restart=always
+RestartSec=5
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=multi-user.target

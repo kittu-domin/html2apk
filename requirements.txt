@@ -1,0 +1,5 @@
+aiogram==3.13.1
+aiosqlite==0.20.0
+Pillow==10.4.0
+telethon==1.36.0
+cryptg==0.4.0        # optional but speeds up Telethon transfers significantly
